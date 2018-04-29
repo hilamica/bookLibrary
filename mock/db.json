@@ -1,24 +1,6 @@
 {
   "booksList": [
     {
-      "id": 1,
-      "author": "Bertie Boggish",
-      "title": "Tofieldia coccinea Richardson",
-      "date": "14/02/2018"
-    },
-    {
-      "id": 2,
-      "author": "Jessica Paliser",
-      "title": "Arabis lignifera A. Nelson",
-      "date": "08/08/2017"
-    },
-    {
-      "id": 3,
-      "title": "Hila",
-      "author": "Itay",
-      "date": "1/1/1951"
-    },
-    {
       "id": 4,
       "author": "Rex Twidle",
       "title": "Vigna marina (Burm. f.) Merr.",
@@ -119,18 +101,6 @@
       "author": "Gwendolin Kobpa",
       "title": "Escobaria villardii Castetter, Pierce & Schwerin",
       "date": "04/06/2017"
-    },
-    {
-      "id": 22,
-      "title": "@@Sss",
-      "author": "Oren the best",
-      "date": "01/01/2010"
-    },
-    {
-      "id": 9212,
-      "title": "Sss",
-      "author": "Oren",
-      "date": "01/05/2010"
     }
   ]
 }
