@@ -1,0 +1,64 @@
+$ui-icons-addBook: "\ea01";
+$ui-icons-edit: "\ea03";
+$ui-icons-rubbish: "\ea02";
+
+@font-face {
+    font-family: ui-icons;
+    src: url("assets/fonts/ui-icons.eot");
+    src: url("assets/fonts/ui-icons.eot?#iefix") format("embedded-opentype"), url("assets/fonts/ui-icons.woff2") format("woff2"), url("assets/fonts/ui-icons.woff") format("woff"), url("assets/fonts/ui-icons.ttf") format("truetype"), url("assets/fonts/ui-icons.svg#ui-icons") format("svg");
+    font-style: normal;
+    font-weight: 400;
+}
+
+%ui-icons {
+    display: inline-block;
+    transform: translate(0, 0);
+    text-rendering: auto;
+    font: normal normal 400 14px/1 ui-icons;
+    font-size: inherit;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+.ui-icons {
+    @extend %ui-icons;
+}
+
+.ui-icons-lg {
+    vertical-align: -15%;
+    line-height: 0.75em;
+    font-size: 1.33333333em;
+}
+
+.ui-icons-2x {
+    font-size: 2em;
+}
+
+.ui-icons-3x {
+    font-size: 3em;
+}
+
+.ui-icons-4x {
+    font-size: 4em;
+}
+
+.ui-icons-5x {
+    font-size: 5em;
+}
+
+.ui-icons-fw {
+    width: 1.28571429em;
+    text-align: center;
+}
+
+.ui-icons-addBook::before {
+    content: "\ea01";
+}
+
+.ui-icons-edit::before {
+    content: "\ea03";
+}
+
+.ui-icons-rubbish::before {
+    content: "\ea02";
+}

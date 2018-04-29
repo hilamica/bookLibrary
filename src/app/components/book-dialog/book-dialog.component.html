@@ -1,0 +1,41 @@
+<form [formGroup]="bookEditForm" fxLayout="column" fxLayoutAlign="space-between" class="bookEditForm">
+  <div fxLayout="column">
+    <div fxLayout="column">
+      <div class="field" fxLayout="row">
+        <div class="title">Book Title:</div>
+        <input class="input" formControlName="title" placeholder="{{selectedBook?.title}}">
+      </div>
+      <div class="error" *ngIf="bookEditForm.controls['title'].invalid">
+        <div *ngIf="bookEditForm.controls['title'].errors.required">
+          Title is required.
+        </div>
+      </div>
+    </div>
+    <div fxLayout="column">
+      <div class="field" fxLayout="row">
+        <div class="title">Book Author:</div>
+        <input class="input" formControlName="author" placeholder="{{selectedBook?.author}}">
+      </div>
+      <div class="error" *ngIf="bookEditForm.controls['author'].invalid">
+        <div *ngIf="bookEditForm.controls['author'].errors.required">
+          Author is required.
+        </div>
+      </div>
+    </div>
+    <div fxLayout="column">
+      <div class="field" fxLayout="row">
+        <div class="title">Date:</div>
+        <input class="input" formControlName="date" placeholder="{{selectedBook?.date}}">
+      </div>
+      <div class="error" *ngIf="bookEditForm.controls['date'].invalid">
+        <div *ngIf="bookEditForm.controls['date'].errors.pattern">
+          Date is not valid
+        </div>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="flex-end center">
+    <button class="dialog-button" [disabled]="!bookEditForm.valid" (click)="saveContent()">save</button>
+    <button class="dialog-button" (click)="cancel()">cancel</button>
+  </div>
+</form>

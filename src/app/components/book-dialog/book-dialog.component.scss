@@ -1,0 +1,36 @@
+.bookEditForm {
+    height: 100%;
+
+    .field {
+        margin-top: 5px;
+
+        .title {
+            width: 85px;
+        }
+
+        .input {
+            flex: 1;
+            height: 20px;
+            padding: 0 5px;
+        }
+    }
+
+    .error {
+        margin: 5px 0;
+        margin-left: 85px;
+        color: red;
+        font-size: 15px;
+    }
+
+    .dialog-button {
+        background-color: lightblue;
+        padding: 8px;
+        border-radius: 5px;
+        min-width: 50px;
+        min-height: 35px;
+    }
+
+    .dialog-button + .dialog-button {
+        margin-left: 5px;
+    }
+}

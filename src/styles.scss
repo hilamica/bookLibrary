@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@import "styles/sprite";
+@import "styles/ui-icons";
+
+@include sprites($spritesheet-sprites);
+
+[class*="ui-icons"] {
+    @extend %ui-icons;
+}
+
+[class*="ui-icons-"] {
+    display: inline-block;
+    font-family: ui-icons;
+    font-style: normal;
+
+    i:before {
+        font-family: ui-icons !important;
+        font-style: normal;
+        font-weight: normal !important;
+        vertical-align: top;
+    }
+}
+
+[class*="icon-"] {
+    display: inline-block;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Dosis', sans-serif;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    font-family: 'Dosis', sans-serif;
+}
+
+button:focus {
+    outline: none;
+}
+
+input {
+    font-family: 'Dosis', sans-serif;
+}

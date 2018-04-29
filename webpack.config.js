@@ -1,0 +1,56 @@
+'use strict';
+var path = require('path');
+var SpritesmithPlugin = require('webpack-spritesmith');
+var WebfontPlugin = require('webpack-webfont')['default'];
+
+
+var plugins = [
+    new SpritesmithPlugin({
+        src: {
+            cwd: path.resolve(__dirname, 'src/styles/icons'),
+            glob: '**/*.png'
+        },
+        target: {
+            image: path.resolve(__dirname, 'src/assets/images/sprite.png'),
+            css: path.resolve(__dirname, 'src/styles/_sprite.scss')
+        },
+        apiOptions: {
+            cssImageRef: "assets\/images\/sprite.png",
+            generateSpriteName: function (sprite) {
+                return 'icon-' + path.basename(sprite, '.png');
+            }
+        }
+    }),
+    new WebfontPlugin({
+        files: path.resolve(__dirname, 'src/styles/svg/*.svg'),
+        css: true,
+        cssTemplateFontPath: 'assets/fonts/',
+        fontName: 'ui-icons',
+        cssTemplateFontName: 'ui-icons',
+        template: 'scss',
+        normalize: true,
+        verbose: true,
+        fontStyle: 'normal !important',
+        dest: {
+            fontsDir: path.resolve(__dirname, 'src/assets/fonts'),
+            stylesDir: path.resolve(__dirname, 'src/styles'),
+        }
+    })
+];
+
+module.exports = {
+    context: __dirname + '/src',
+
+    entry: '../webpack-helper/entry.js',
+
+    output: {
+        path: __dirname + '/webpack-helper',
+        filename: '[name].js'
+    },
+
+    plugins: plugins,
+
+    module: {
+        loaders: []
+    }
+};

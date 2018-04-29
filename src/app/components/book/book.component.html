@@ -1,0 +1,14 @@
+<div >
+  <div class="header" (click)="openAccordion = !openAccordion">{{bookItem.title | nonEnglish}}</div>
+  <div class="content" *ngIf="openAccordion" fxLayout="row" fxLayoutAlign="space-between start">
+    <div fxLayout="column" class="text">
+      <div>Book Title: {{bookItem.title | nonEnglish}}</div>
+      <div>Book Author: {{bookItem.author}}</div>
+      <div>Date: {{bookItem.date}}</div>
+    </div>
+    <div>
+      <button class="ui-icons-edit" (click)="editBookDetails()"></button>
+      <button class="ui-icons-rubbish" (click)="deleteBook()"></button>
+    </div>
+  </div>
+</div>

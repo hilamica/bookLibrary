@@ -1,0 +1,10 @@
+<div class="dashboard" fxLayout="column" >
+  <div class="title" fxLayout fxLayoutAlign="center center">The Books Library</div>
+  <div class="addBook" (click)="addNewBook()">
+    <button class="ui-icons-addBook"></button>
+    <span>Add new book</span>
+  </div>
+  <ul class="booksList">
+    <app-book *ngFor="let book of booksList" [bookItem]="book" (bookToDelete)="deleteBook($event)"></app-book>
+  </ul>
+</div>

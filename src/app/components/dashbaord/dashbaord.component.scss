@@ -1,0 +1,23 @@
+.dashboard {
+    background: url(../../../styles/icons/books_bg.png) no-repeat;
+    height: 100%;
+    width: 850px;
+
+    .title {
+        font-weight: 600;
+        font-size: 40px;
+        padding: 20px;
+    }
+
+    .addBook {
+        font-weight: 600;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .booksList {
+        margin: 0 auto;
+        max-height: 540px;
+        overflow: auto;
+    }
+}
