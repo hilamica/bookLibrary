@@ -14,7 +14,7 @@ app.get('/*', function (req, res) {
 });
 
 app.get('/booksList', function (req, res) {
-
+res.setHeader('Content-Type', 'application/json');
     res.send(books);
 });
 
