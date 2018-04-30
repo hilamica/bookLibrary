@@ -3,7 +3,6 @@ import { Book } from './../interfaces/book';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { environment } from '../../../environments/environment';
 
 
 @Injectable()
@@ -17,9 +16,8 @@ export class BooksLibraryService {
   }
 
   httpRequest(req: string, id: string, book?: Book): Observable<any> {
-    return this.http.request(req, `${environment.api}/booksList/${id}`, { body: book });
+    return this.http.request(req, `/booksList/${id}`, { body: book });
   }
-
   getBooksList(): Observable<Book[]> {
     return this.booksList = this.httpRequest('get', '');
   }
