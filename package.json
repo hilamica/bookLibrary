@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "postinstall": "ng build --aot -prod",
     "ng": "ng",
     "start": "node server.js",
     "build": "ng build --prod",
@@ -11,6 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "icons": "webpack -w",
+    "postinstall": "ng build --aot -prod",
     "mock": "json-server --watch ./mock/db.json"
   },
   "private": true,
