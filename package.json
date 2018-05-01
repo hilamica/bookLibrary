@@ -33,7 +33,12 @@
     "rxjs": "^5.5.6",
     "webpack-spritesmith": "^0.4.1",
     "webpack-webfont": "0.0.1-alpha.10",
-    "zone.js": "^0.8.19"
+    "zone.js": "^0.8.19",
+    "typescript": "~2.5.3"
+  },
+  "engines": {
+    "node": "7.5.0",
+    "npm": "5.6.0"
   },
   "devDependencies": {
     "@angular/cli": "^1.7.4",
