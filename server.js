@@ -14,7 +14,7 @@ app.get('/index', function (req, res) {
 app.get('/booksList', function (req, res) {
     const books = require(path.join(__dirname + '/dist/assets/db.json'));
     res.setHeader('Content-Type', 'application/json');
-    res.send(books);
+    res.send(books.booksList);
 });
 
 // Start the app by listening on the default Heroku port
