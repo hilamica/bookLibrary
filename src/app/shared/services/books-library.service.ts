@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class BooksLibraryService {
 
-  booksList: Observable<Book[]>;
+  booksList: Book[] = [];
 
 
   constructor(private http: HttpClient) {
@@ -20,7 +20,12 @@ export class BooksLibraryService {
   }
 
   getBooksList(): Observable<Book[]> {
-    return this.booksList = this.httpRequest('get', '');
+    return new Observable(observer => {
+      this.httpRequest('get', '').subscribe(data => {
+        this.booksList = data;
+        observer.next(data);
+      });
+    });
   }
 
   saveEditableBook(book: Book): Observable<any> {

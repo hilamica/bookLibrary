@@ -39,34 +39,34 @@ export class BookDialogComponent implements OnInit {
 
   saveContent() {
 
-    if (this.bookEditForm.dirty) {
-      this.selectedBook = this.bookEditForm.getRawValue();
+    // if (this.bookEditForm.dirty) {
+    //   this.selectedBook = this.bookEditForm.getRawValue();
 
-      this._booksLibraryService.booksList.subscribe(data => {
-        const result = data.find(book => book.title === this.selectedBook.title);
+    //   this._booksLibraryService.booksList.subscribe(data => {
+    //     const result = data.find(book => book.title === this.selectedBook.title);
 
-        if (result) {
-          alert('book is already exist');
-        }
+    //     if (result) {
+    //       alert('book is already exist');
+    //     }
 
-        else {
-          if (this.new_book) {
-            this._booksLibraryService.addBookToLibarary(this.selectedBook).subscribe(() => {
-              this.dialogRef.close();
-            });
-            this.new_book = false;
-          } else {
-            this._booksLibraryService.saveEditableBook(this.selectedBook).subscribe(() => {
-              this.dialogRef.close();
-            });
-          }
-        }
-      });
-    }
+    //     else {
+    //       if (this.new_book) {
+    //         this._booksLibraryService.addBookToLibarary(this.selectedBook).subscribe(() => {
+    //           this.dialogRef.close();
+    //         });
+    //         this.new_book = false;
+    //       } else {
+    //         this._booksLibraryService.saveEditableBook(this.selectedBook).subscribe(() => {
+    //           this.dialogRef.close();
+    //         });
+    //       }
+    //     }
+    //   });
+    // }
 
-    else {
-      this.dialogRef.close();
-    }
+    // else {
+    //   this.dialogRef.close();
+    // }
 
   }
 

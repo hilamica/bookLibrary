@@ -12,10 +12,10 @@ import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 })
 export class DashbaordComponent implements OnInit {
 
-  booksList: Book[];
+  // booksList: Book[];
   new_book;
 
-  constructor(private _booksLibraryService: BooksLibraryService,
+  constructor(public _booksLibraryService: BooksLibraryService,
     public dialog: MatDialog) { }
 
   ngOnInit() {
@@ -24,7 +24,7 @@ export class DashbaordComponent implements OnInit {
 
   getBooksList(): void {
     this._booksLibraryService.getBooksList().subscribe(data => {
-      this.booksList = data;
+      // this.booksList = data;
     });
   }
 
