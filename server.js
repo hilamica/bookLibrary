@@ -1,7 +1,7 @@
 //Install express server
 const express = require('express');
 const path = require('path');
-const books = require("./dist/assets/db.json")
+const books = require("./src/assets/db.json")
 
 const app = express();
 
@@ -14,7 +14,7 @@ app.get('/*', function (req, res) {
 });
 
 app.get('/booksList', function (req, res) {
-res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Content-Type', 'application/json');
     res.send(books);
 });
 
