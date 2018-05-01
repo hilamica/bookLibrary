@@ -1,7 +1,7 @@
 //Install express server
 const express = require('express');
 const path = require('path');
-const books = require('./dist/assets/db');
+const books = require('./dist/assets/db.json');
 
 const app = express();
 
