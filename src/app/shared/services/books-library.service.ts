@@ -18,6 +18,7 @@ export class BooksLibraryService {
   httpRequest(req: string, id: string, book?: Book): Observable<any> {
     return this.http.request(req, `/booksList/${id}`, { body: book });
   }
+
   getBooksList(): Observable<Book[]> {
     return this.booksList = this.httpRequest('get', '');
   }
