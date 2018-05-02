@@ -1,3 +1,4 @@
+import { environment } from './../../../environments/environment';
 import { Subject } from 'rxjs/Subject';
 import { Book } from './../interfaces/book';
 import { Injectable } from '@angular/core';
@@ -9,14 +10,17 @@ import { Observable } from 'rxjs/Observable';
 export class BooksLibraryService {
 
   booksList: Book[] = [];
-
+  booksListSubject = new Subject<Book[]>();
 
   constructor(private http: HttpClient) {
-
   }
 
   httpRequest(req: string, id: string, book?: Book): Observable<any> {
-    return this.http.request(req, `/booksList/${id}`, { body: book });
+    return this.http.request(req, `${environment.api}/booksList/${id}`, { body: book });
+  }
+
+  getLocalBooksList(): Book[] {
+    return this.booksList;
   }
 
   getBooksList(): Observable<Book[]> {
@@ -28,21 +32,14 @@ export class BooksLibraryService {
     });
   }
 
-  saveEditableBook(book: Book): Observable<any> {
-    return this.httpRequest('put', String(book.id), book);
-  }
-
-  getBook(bookID: string) {
-    return this.httpRequest('get', bookID);
-  }
-
   deleteBookFromLibarary(bookID: number) {
-    return this.httpRequest('delete', String(bookID));
+    const index = this.booksList.findIndex(bookItr => bookItr.id === bookID);
+    this.booksList.splice(index, 1);
+    this.booksListSubject.next(this.booksList.slice());
   }
 
   addBookToLibarary(newBook: Book) {
-    return this.httpRequest('post', '', newBook);
+    this.booksList.push(newBook);
   }
-
 
 }

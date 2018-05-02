@@ -1,9 +1,8 @@
 import { BooksLibraryService } from './../../shared/services/books-library.service';
-import { Component, OnInit, Inject, Input, Output } from '@angular/core';
+import { Component, OnInit, Inject} from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Book } from '../../shared/interfaces/book';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { isNullOrUndefined } from 'util';
 
 
 @Component({
@@ -39,34 +38,31 @@ export class BookDialogComponent implements OnInit {
 
   saveContent() {
 
-    // if (this.bookEditForm.dirty) {
-    //   this.selectedBook = this.bookEditForm.getRawValue();
+    if (this.bookEditForm.dirty) {
+      this.selectedBook = this.bookEditForm.getRawValue();
 
-    //   this._booksLibraryService.booksList.subscribe(data => {
-    //     const result = data.find(book => book.title === this.selectedBook.title);
+      if (this.bookEditForm.controls['title'].dirty) {
+        const result = this._booksLibraryService.getLocalBooksList().find(book => book.title === this.selectedBook.title);
 
-    //     if (result) {
-    //       alert('book is already exist');
-    //     }
+        if (result) {
+          alert('book is already exist');
+        }
+      }
 
-    //     else {
-    //       if (this.new_book) {
-    //         this._booksLibraryService.addBookToLibarary(this.selectedBook).subscribe(() => {
-    //           this.dialogRef.close();
-    //         });
-    //         this.new_book = false;
-    //       } else {
-    //         this._booksLibraryService.saveEditableBook(this.selectedBook).subscribe(() => {
-    //           this.dialogRef.close();
-    //         });
-    //       }
-    //     }
-    //   });
-    // }
+      if (this.new_book) {
+        this._booksLibraryService.addBookToLibarary(this.selectedBook);
+        this.new_book = false;
+        this.dialogRef.close();
+      }
 
-    // else {
-    //   this.dialogRef.close();
-    // }
+      else {
+        this.dialogRef.close(this.selectedBook);
+      }
+    }
+
+    else {
+      this.dialogRef.close();
+    }
 
   }
 

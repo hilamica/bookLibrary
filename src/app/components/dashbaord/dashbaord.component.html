@@ -5,7 +5,7 @@
     <span>Add new book</span>
   </div>
   <ul class="booksList">
-    <li *ngFor="let book of _booksLibraryService.booksList">
+    <li *ngFor="let book of booksList">
       <app-book [bookItem]="book" (bookToDelete)="deleteBook($event)"></app-book>
     </li>
   </ul>

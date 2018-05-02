@@ -14,14 +14,11 @@ export class BookComponent implements OnInit {
 
   @Input() bookItem: Book;
   @Output() bookToDelete: EventEmitter<number> = new EventEmitter<number>();
-  openAccordion = false;
 
-  constructor(public dialog: MatDialog, private _booksLibraryService: BooksLibraryService,
-    private titlecasePipe: TitleCasePipe) {
+  constructor(public dialog: MatDialog, private _booksLibraryService: BooksLibraryService) {
   }
 
   ngOnInit() {
-    this.bookItem.title = this.titlecasePipe.transform(this.bookItem.title);
   }
 
   editBookDetails() {
@@ -31,10 +28,8 @@ export class BookComponent implements OnInit {
       data: { title: this.bookItem.title, author: this.bookItem.author, date: this.bookItem.date, id: this.bookItem.id }
     });
 
-    dialogRef.afterClosed().subscribe(() => {
-      this._booksLibraryService.getBook(String(this.bookItem.id)).subscribe(data => {
-        this.bookItem = data;
-      });
+    dialogRef.afterClosed().subscribe(data => {
+      this.bookItem = data;
     });
   }
 
