@@ -14,6 +14,7 @@ export class BookComponent implements OnInit {
 
   @Input() bookItem: Book;
   @Output() bookToDelete: EventEmitter<number> = new EventEmitter<number>();
+  openAccordion = false;
 
   constructor(public dialog: MatDialog, private _booksLibraryService: BooksLibraryService) {
   }
