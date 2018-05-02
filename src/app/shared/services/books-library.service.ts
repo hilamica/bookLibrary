@@ -40,6 +40,7 @@ export class BooksLibraryService {
 
   addBookToLibarary(newBook: Book) {
     this.booksList.push(newBook);
+    this.booksListSubject.next(this.booksList.slice());
   }
 
 }

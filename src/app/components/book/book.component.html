@@ -2,7 +2,7 @@
   <div class="header" (click)="openAccordion = !openAccordion">{{bookItem.title | nonEnglish | titlecase}}</div>
   <div class="content" *ngIf="openAccordion" fxLayout="row" fxLayoutAlign="space-between start">
     <div fxLayout="column" class="text">
-      <div>Book Title: {{bookItem.title | nonEnglish}}</div>
+      <div>Book Title: {{bookItem.title | nonEnglish | titlecase}}</div>
       <div>Book Author: {{bookItem.author}}</div>
       <div>Date: {{bookItem.date}}</div>
     </div>
@@ -12,3 +12,6 @@
     </div>
   </div>
 </div>
+<p-confirmDialog icon="fa fa-question-circle" width="425"></p-confirmDialog>
+
+ 

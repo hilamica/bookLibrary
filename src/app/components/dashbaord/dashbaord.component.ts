@@ -8,7 +8,7 @@ import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-dashbaord',
   templateUrl: './dashbaord.component.html',
-  styleUrls: ['./dashbaord.component.scss']
+  styleUrls: ['./dashbaord.component.scss'],
 })
 export class DashbaordComponent implements OnInit {
 

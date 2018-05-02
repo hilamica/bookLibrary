@@ -8,8 +8,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
+import { GrowlModule } from 'primeng/growl';
 
 import { AppComponent } from './app.component';
 import { BookComponent } from './components/book/book.component';
@@ -30,6 +31,7 @@ import { TitleCasePipe } from '@angular/common';
   entryComponents: [BookDialogComponent],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FlexLayoutModule,
     HttpClientModule,
     BrowserAnimationsModule,
@@ -38,7 +40,7 @@ import { TitleCasePipe } from '@angular/common';
     MatDialogModule,
     FormsModule,
     MatButtonModule,
-
+    ConfirmDialogModule
   ],
   providers: [BooksLibraryService,
     TitleCasePipe],

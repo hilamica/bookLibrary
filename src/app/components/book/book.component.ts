@@ -1,22 +1,29 @@
+import { isNullOrUndefined } from 'util';
 import { BooksLibraryService } from './../../shared/services/books-library.service';
 import { Book } from './../../shared/interfaces/book';
 import { BookDialogComponent } from './../book-dialog/book-dialog.component';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { TitleCasePipe } from '@angular/common';
+import { ConfirmationService, Message } from 'primeng/components/common/api';
+
 
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
-  styleUrls: ['./book.component.scss']
+  styleUrls: ['./book.component.scss'],
+  providers: [ConfirmationService]
 })
 export class BookComponent implements OnInit {
+
 
   @Input() bookItem: Book;
   @Output() bookToDelete: EventEmitter<number> = new EventEmitter<number>();
   openAccordion = false;
+  msgs: Message[] = [];
 
-  constructor(public dialog: MatDialog, private _booksLibraryService: BooksLibraryService) {
+  constructor(public dialog: MatDialog, private _booksLibraryService: BooksLibraryService,
+    private confirmationService: ConfirmationService
+  ) {
   }
 
   ngOnInit() {
@@ -30,14 +37,23 @@ export class BookComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(data => {
-      this.bookItem = data;
+      if (!isNullOrUndefined(data)) {
+        this.bookItem = data;
+      }
     });
   }
 
+
   deleteBook() {
-    alert('Are you sure you want to delete ' + this.bookItem.title + '?');
-    this.bookToDelete.emit(this.bookItem.id);
+    this.confirmationService.confirm({
+      message: 'Are you sure that you want to delete this book?',
+      header: 'Delete Confirmation',
+      accept: () => {
+        this.bookToDelete.emit(this.bookItem.id);
+      },
+      reject: () => {
+        return;
+      }
+    });
   }
-
 }
-
